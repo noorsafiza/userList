@@ -1,0 +1,9 @@
+my\utm\ip\userTable\model\User.class
+my\utm\ip\userTable\model\repository\userRepository.class
+my\utm\ip\userTable\configs\AppConfig.class
+my\utm\ip\userTable\service\ServiceDatabaseImpl.class
+my\utm\ip\userTable\model\repository\userRepositoryImpl.class
+my\utm\ip\userTable\configs\DatabaseConfig.class
+my\utm\ip\userTable\model\UserDAO.class
+my\utm\ip\userTable\controller\UserController.class
+my\utm\ip\userTable\service\userService.class

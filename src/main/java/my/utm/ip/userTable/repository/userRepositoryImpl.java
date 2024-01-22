@@ -13,7 +13,7 @@ public class userRepositoryImpl implements userRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @Override
+     @Override
     public List<User> getAllUsers() {
         String sql = "SELECT * FROM user";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class));
@@ -27,19 +27,18 @@ public class userRepositoryImpl implements userRepository {
 
     @Override
     public void addUser(User user) {
-        String sql = "INSERT INTO user (username, password, email, name, contact, status, address, category) " +
-                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO user (username, password, email, name, contact, address, category) " +
+                     "VALUES (?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql, user.getUsername(), user.getPassword(), user.getEmail(),
-                user.getName(), user.getContact(), user.getStatus(), user.getAddress(), user.getCategory());
+                user.getName(), user.getContact(), user.getAddress(), user.getCategory());
     }
 
     @Override
     public void updateUser(User user) {
         String sql = "UPDATE user SET username = ?, password = ?, email = ?, name = ?, " +
-                     "contact = ?, status = ?, address = ?, category = ? WHERE userId = ?";
+                     "contact = ?, address = ?, category = ? WHERE userId = ?";
         jdbcTemplate.update(sql, user.getUsername(), user.getPassword(), user.getEmail(),
-                user.getName(), user.getContact(), user.getStatus(), user.getAddress(),
-                user.getCategory(), user.getUserId());
+                user.getName(), user.getContact(), user.getAddress(), user.getCategory(), user.getUserId());
     }
 
     @Override

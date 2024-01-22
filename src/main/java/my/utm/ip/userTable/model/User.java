@@ -8,7 +8,6 @@ public class User {
     private String email;
     private String name;
     private String contact;
-    private String status;
     private String address;
     private String category;
 
@@ -19,21 +18,19 @@ public class User {
         this.email = "";
         this.name = "";
         this.contact = "";
-        this.status = "";
         this.address = "";
         this.category = "";
 
     }
 
     public User(int userId, String username, String password, String email,
-                String name, String contact, String status, String address, String category) {
+                String name, String contact, String address, String category) {
         this.userId = userId;
         this.username = username;
         this.password = password;
         this.email = email;
         this.name = name;
         this.contact = contact;
-        this.status = status;
         this.address = address;
         this.category = category;
 
@@ -85,14 +82,6 @@ public class User {
 
     public void setContact(String contact) {
         this.contact = contact;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public String getAddress() {

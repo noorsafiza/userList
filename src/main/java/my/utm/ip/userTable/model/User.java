@@ -1,15 +1,11 @@
 package my.utm.ip.userTable.model;
 
 public class User {
-
-    //DTO
     
     private int userId;
     private String username;
     private String password;
-    private String role;
     private String email;
-    private String idCard;
     private String name;
     private String contact;
     private String status;
@@ -20,9 +16,7 @@ public class User {
         this.userId = 0;
         this.username = "";
         this.password = "";
-        this.role = "";
         this.email = "";
-        this.idCard = "";
         this.name = "";
         this.contact = "";
         this.status = "";
@@ -31,14 +25,12 @@ public class User {
 
     }
 
-    public User(int userId, String username, String password, String role, String email, String idCard,
+    public User(int userId, String username, String password, String email,
                 String name, String contact, String status, String address, String category) {
         this.userId = userId;
         this.username = username;
         this.password = password;
-        this.role = role;
         this.email = email;
-        this.idCard = idCard;
         this.name = name;
         this.contact = contact;
         this.status = status;
@@ -71,28 +63,12 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getIdCard() {
-        return idCard;
-    }
-
-    public void setIdCard(String idCard) {
-        this.idCard = idCard;
     }
 
     public String getName() {

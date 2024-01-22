@@ -15,28 +15,36 @@ public class userRepositoryImpl implements userRepository {
 
     @Override
     public List<User> getAllUsers() {
-        // Implement logic to fetch all users from the database
-        return null;
+        String sql = "SELECT * FROM user";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class));
     }
 
     @Override
     public User getUserById(int userId) {
-        // Implement logic to fetch a user by ID from the database
-        return null;
+        String sql = "SELECT * FROM user WHERE userId = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{userId}, new BeanPropertyRowMapper<>(User.class));
     }
 
     @Override
     public void addUser(User user) {
-        // Implement logic to add a new user to the database
+        String sql = "INSERT INTO user (username, password, email, name, contact, status, address, category) " +
+                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sql, user.getUsername(), user.getPassword(), user.getEmail(),
+                user.getName(), user.getContact(), user.getStatus(), user.getAddress(), user.getCategory());
     }
 
     @Override
     public void updateUser(User user) {
-        // Implement logic to update an existing user in the database
+        String sql = "UPDATE user SET username = ?, password = ?, email = ?, name = ?, " +
+                     "contact = ?, status = ?, address = ?, category = ? WHERE userId = ?";
+        jdbcTemplate.update(sql, user.getUsername(), user.getPassword(), user.getEmail(),
+                user.getName(), user.getContact(), user.getStatus(), user.getAddress(),
+                user.getCategory(), user.getUserId());
     }
 
     @Override
     public void deleteUser(int userId) {
-        // Implement logic to delete a user by ID from the database
+        String sql = "DELETE FROM user WHERE userId = ?";
+        jdbcTemplate.update(sql, userId);
     }
 }
